@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <style>
+            .circle_progress {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                font-family: sans-serif;
+                font-size: 1.5rem;
+                display: flex;
+                background: conic-gradient(
+                    red 0deg var(--progress),
+                    transparent var(--progress) 360deg
+                );
+                animation: fillAnimation .5s linear forwards;
+            }
+
+            @keyframes fillAnimation {
+                0% {
+                    --progress: calc((var(--percent) / 100) * 0deg);
+                }
+                10% {
+                    --progress: calc((var(--percent) / 100) * 36deg);
+                }
+                20% {
+                    --progress: calc((var(--percent) / 100) * 72deg);
+                }
+                30% {
+                    --progress: calc((var(--percent) / 100) * 108deg);
+                }
+                40% {
+                    --progress: calc((var(--percent) / 100) * 140deg);
+                }
+                50% {
+                    --progress: calc((var(--percent) / 100) * 180deg);
+                }
+                60% {
+                    --progress: calc((var(--percent) / 100) * 216deg);
+                }
+                70% {
+                    --progress: calc((var(--percent) / 100) * 252deg);
+                }
+                80% {
+                    --progress: calc((var(--percent) / 100) * 288deg);
+                }
+                90% {
+                    --progress: calc((var(--percent) / 100) * 324deg);
+                }
+                100% {
+                    --progress: calc((var(--percent) / 100) * 360deg);
+                }
+            }
+
+            .circle_progress .number {
+                background-color: lightgray;
+                width: 90%;
+                height: 90%;
+                border-radius: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: auto;
+                color: black;
+            }
+
+            .bar_progress {
+                width: var(--length);
+                height: 25px;
+                background-color: gray;
+                border-radius: 10px;
+            }
+
+            .bar_progress .number {
+                background: linear-gradient(
+                    to right,
+                    red 0px var(--bar_progress),
+                    transparent var(--bar_progress) var(--length)
+                );
+                width: var(--length);
+                height: 25px;
+                border-radius: 10px;
+                animation: barFillAnimation .25s linear forwards;
+            }
+
+            @keyframes barFillAnimation {
+                0% {
+                    --bar_progress: 0px;
+                }
+                10% {
+                    --bar_progress: calc(var(--percent) * 0.001 * var(--length));
+                }
+                20% {
+                    --bar_progress: calc(var(--percent) * 0.002 * var(--length));
+                }
+                30% {
+                    --bar_progress: calc(var(--percent) * 0.003 * var(--length));
+                }
+                40% {
+                    --bar_progress: calc(var(--percent) * 0.004 * var(--length));
+                }
+                50% {
+                    --bar_progress: calc(var(--percent) * 0.005 * var(--length));
+                }
+                60% {
+                    --bar_progress: calc(var(--percent) * 0.006 * var(--length));
+                }
+                70% {
+                    --bar_progress: calc(var(--percent) * 0.007 * var(--length));
+                }
+                80% {
+                    --bar_progress: calc(var(--percent) * 0.008 * var(--length));
+                }
+                90% {
+                    --bar_progress: calc(var(--percent) * 0.009 * var(--length));
+                }
+                100% {
+                    --bar_progress: calc(var(--percent) * 0.01 * var(--length));
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- Circle Progress -->
+        <div class="circle_progress" style="--percent: 50; margin-bottom: 25px;">
+            <div class="number">50%</div>
+        </div>
+        <!-- Bar Progress -->
+        <div>
+            <div class="bar_progress" style="--length: 200px">
+                <div class="number" style="--percent: 75"></div>
+            </div>
+        </div>
+    </body>
+</html>
